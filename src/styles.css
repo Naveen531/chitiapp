@@ -1,0 +1,201 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@font-face {
+  font-family: "AgfaRotisSemisans";
+  src: url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.eot");
+  src: url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.eot") format("embedded-opentype"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.woff2") format("woff2"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.woff") format("woff"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.ttf") format("truetype"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.svg#ROTSSA") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "AgfaRotisSemisansItalic";
+  src: url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.eot");
+  src: url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.eot") format("embedded-opentype"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.woff2") format("woff2"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.woff") format("woff"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.ttf") format("truetype"), url("assets/resource/font/Afga-Rotis-Semisans-Regular/ROTSSA.svg#ROTSSA") format("svg");
+  font-weight: normal;
+  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*********** New Design **************/
+
+@font-face {
+  font-family: "graphik-black";
+  src: url("assets/resource/font/graphik/Graphik-Black-Web.eot");
+  src: url("assets/resource/font/graphik/Graphik-Black-Web.eot") format("embedded-opentype"), url("assets/resource/font/graphik/Graphik-Black-Web.woff2") format("woff2"), url("assets/resource/font/graphik/Graphik-Black-Web.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "graphik-bold";
+  src: url("assets/resource/font/graphik/Graphik-Bold-Web.eot");
+  src: url("assets/resource/font/graphik/Graphik-Bold-Web.eot") format("embedded-opentype"), url("assets/resource/font/graphik/Graphik-Bold-Web.woff2") format("woff2"), url("assets/resource/font/graphik/Graphik-Bold-Web.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "graphik-medium";
+  src: url("assets/resource/font/graphik/Graphik-Medium-Web.eot");
+  src: url("assets/resource/font/graphik/Graphik-Medium-Web.eot") format("embedded-opentype"), url("assets/resource/font/graphik/Graphik-Medium-Web.woff2") format("woff2"), url("assets/resource/font/graphik/Graphik-Medium-Web.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "graphik-regular";
+  src: url("assets/resource/font/graphik/Graphik-Regular-Web.eot");
+  src: url("assets/resource/font/graphik/Graphik-Regular-Web.eot") format("embedded-opentype"), url("assets/resource/font/graphik/Graphik-Regular-Web.woff2") format("woff2"), url("assets/resource/font/graphik/Graphik-Regular-Web.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "graphik-semibold";
+  src: url("assets/resource/font/graphik/Graphik-Semibold-Web.eot");
+  src: url("assets/resource/font/graphik/Graphik-Semibold-Web.eot") format("embedded-opentype"), url("assets/resource/font/graphik/Graphik-Semibold-Web.woff2") format("woff2"), url("assets/resource/font/graphik/Graphik-Semibold-Web.woff") format("woff");
+  -webkit-font-smoothing: antialiased;
+}
+:root {
+  --color-rgb0000: rgba(0, 0, 0, 0);
+  --color-rgb00042: rgba(0, 0, 0, .42);
+  --color-rgb00054: rgba(0, 0, 0, .54);
+  --color-rgb00087: rgba(0, 0, 0, .87);
+  --gainsboro: gainsboro;
+  --color--f1f1f1: #f1f1f1;
+  --white: white;
+  --black: #000000;
+  --green: #22A436;
+  --tag-green: #39C54E;
+  --color-white: #ffffff;
+  --color-whitefff: #fff;
+  --color-eee: #eee;
+  --color-black: #000000;
+  --color-black000: #000;
+  --color-light-gray: #D9D7D8;
+  --color-green: #3ECC59;
+  --gray-bg: #E6E6E6;
+  --divider-color: #CCCCCC;
+  --divider-colorccc: #CCC;
+  --colorddd: #ddd;
+  --date-color: #999999;
+  --color999: #999;
+  --dashboard-subtitle-text-color: #666666;
+  --archive-button-bg: #F0F0F0;
+  --button-text-color: #333333;
+  --color333: #333;
+  --color-dark-green: #31993D;
+  --color-light-black: #414141;
+  --color-darker-grey: #999999;
+  --color-dark-black: #262626;
+  --color-dark-grey: #666666;
+  --color-darkgrey666: #666;
+  --color-normalgrey: grey;
+  --color-f2f2f2: #f2f2f2;
+  --dashboard-background-color: #f2f2f2;
+  --chip-text-grey: #858585;
+  --color-text-disabled: #4d4d4d;
+  --color-light-grey: #b3b3b3;
+  --color-myquestion: #ff9128;
+  --color-tab-notselected: #808080;
+  --response-card-background-color: #F9f9f9;
+  --green-color: #00d700;
+  --card-background-color: #F4F4F4;
+  --comment-divider-color: #E8E8E8;
+  --color-blue: #008eff;
+  --dropdown-background-color: #ff9126;
+  --option-text-color: #ffd9b6;
+  --banner-text-color: #b4b4b4;
+  --hr-grey-color: #d3d3d3;
+  --lightgery: lightgrey;
+  --color-whitesmoke: whitesmoke;
+  --menu-background-color:#f7f7f7;
+  --color-border:#e8e8e8;
+}
+.bodyclass {
+  overflow-x: hidden !important;
+  background-color: #f2f2f2 !important;
+  background-color: var(--dashboard-background-color) !important;
+}
+
+div {
+  outline: none;
+}
+
+#helloTxt {
+  font-family: "graphik-black";
+  color: #4d4d4d;
+  color: var(--color-text-disabled);
+  font-size: 1.5em;
+}
+
+#whatTxt {
+  font-family: "graphik-medium";
+  font-size: 1.5em;
+  color: var(--color-dark-grey);
+}
+
+#helloTxt span {
+  color: #ff9128;
+  color:var(--color-myquestion);
+}
+
+@media only screen and (min-width: 1224px) {
+  #helloTxt {
+    font-size: 2.5em;
+  }
+}
+
+.mat-snack-bar-container.mat-snack-bar-center {
+  margin: 50px !important;
+}
+.mat-snack-bar-container {
+  border-radius: 30px !important;
+  min-width: unset !important;
+  /* color: #999 !important; */
+  font-family: "graphik-regular" !important;
+  padding: 8px 10px !important;
+}
+
+mat-card {
+  box-shadow: unset !important;
+}
+
+.mat-simple-snackbar {
+  line-height: 10px;
+  font-size: 12px;
+  font-family: "graphik-regular";
+  justify-content: center !important;
+}
+
+body{
+  -webkit-font-smoothing: antialiased;
+}
+
+.ngx-pagination{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15px !important;
+}
+
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #21d626 !important;
+  color: #fefefe;
+  cursor: default;
+}
+
+.ngx-pagination li a{
+  font-size: 14px !important;
+  outline-color: #21d626;
+  outline-width: 3px;
+}
+
+.ngx-pagination li span{
+  font-size: 14px !important;
+}
+.cdk-overlay-container{
+  z-index: 1070 !important;
+}
+
+hr{
+  border-top: 1px solid #ccc !important;
+}

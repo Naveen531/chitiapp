@@ -1,0 +1,5 @@
+.homeclass .listgroupitems{
+width: 60%;
+margin: 40px auto;
+}
+.homeclass li.hovercolor:hover {color: red;}

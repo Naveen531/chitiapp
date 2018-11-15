@@ -1,0 +1,139 @@
+<div class="chitidetailsclass">
+  <div>
+    <div class="chitiname">
+      <span class="nameofheader">
+        Chiti Name :
+      </span>
+      <span class="valofheader">
+        {{chitidetails['chitiname']}}
+      </span>
+    </div>
+    <div class="chitiamt">
+      <span class="nameofheader">
+        Chiti Amount :
+      </span>
+      <span class="valofheader">
+        {{chitidetails['chitiamonut']}}
+      </span>
+    </div>
+    <div class="chitimes">
+      <span class="nameofheader">
+        Chiti Members :
+      </span>
+      <span class="valofheader">
+        {{chitidetails['totalmembers']}}
+      </span>
+    </div>
+    <div class="chitistartdate">
+      <span class="nameofheader">
+        Start Date :
+      </span>
+      <span class="valofheader">
+        {{chitidetails['startdate']}}
+      </span>
+    </div>
+    <div class="chitienddate">
+      <span class="nameofheader">
+        End Date :
+      </span>
+      <span class="valofheader">
+        {{chitidetails['enddate']}}
+      </span>
+    </div>
+    <div class="chitiremainingmonths">
+      <span class="nameofheader">
+        Percentage :
+      </span>
+      <span class="valofheader">
+        9%
+      </span>
+    </div>
+    <div class="chitiremainingmonths">
+      <span class="nameofheader">
+        Months Remining for Chiti Completion :
+      </span>
+      <span class="valofheader">
+        9
+      </span>
+    </div>
+  </div>
+  <div class="commisiontable">
+    <div class="headerforchiticlassdiv">
+    <span class="headerforchiticlass">
+      Commision Month Wise
+    </span>
+  </div>
+    <div class="searchmemscrolldiv  table-responsive">
+      <table class="table table-borderless table-fixed">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Percentage</th>
+            <th>Sold For</th>
+            <th>Commission</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mem of commDetails;let i = index">
+            <td class="tdforname">
+             Date: {{mem['month']}}
+            <div>
+             Taken By: Naveen
+            </div>
+            </td>
+            <td>
+              {{mem['percent']}}
+            </td>
+            <td>
+              {{mem['soldfor']}}
+            </td>
+            <td>
+              {{mem['commision']}}
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="memdetailsincgitidetails">
+    <div class="headerforchiticlassdiv">
+      <label class="headerforchiticlass">
+        Members in Chiti
+      </label>
+    </div>
+    <div class="filtertable">
+      Fliter Table
+      <input type="text" class="searchInput" placeholder="Search by Name Or Phone Number">
+    </div>
+    <div class=" table-responsive">
+      <table class="table table-borderless table-fixed">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Modify / View</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mem of memDetails;let i = index">
+            <td class="tdforname">{{mem['name']}}</td>
+            <td>
+              {{mem['phoneno']}}
+            </td>
+            <td>
+              <button class="btn">
+                Edit
+              </button>
+              <button class="btn viewbtn" (click)="goToMemberPerformance()">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

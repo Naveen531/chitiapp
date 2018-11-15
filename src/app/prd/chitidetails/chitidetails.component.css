@@ -1,0 +1,54 @@
+.chitidetailsclass .nameofheader{
+    font-family: "graphik-bold";
+    font-size:16px;
+}
+.chitidetailsclass .valofheader{
+    font-size:14px;
+    font-family: "graphik-regular";
+}
+.chitidetailsclass tbody {
+    display:block;
+    height:100px;
+    overflow:auto;
+}
+.chitidetailsclass thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.chitidetailsclass thead {
+    width: calc( 100% - 1em )
+}
+.chitidetailsclass td{
+    word-break: break-all;
+}
+.chitidetailsclass .btn{
+    border-radius: 20px;
+}
+.chitidetailsclass .viewbtn{
+    margin: 4px;  
+}
+.chitidetailsclass  .btn:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+.chitidetailsclass .headerforchiticlass{
+    font-family: "graphik-bold";
+    font-size:18px;
+}
+.chitidetailsclass .headerforchiticlassdiv{
+    text-align: center;
+}
+.chitidetailsclass .searchInput {
+    font-family: "graphik-regular";
+    width: 204px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-left: 5px;
+}

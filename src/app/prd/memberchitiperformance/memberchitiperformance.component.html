@@ -1,0 +1,92 @@
+<div class="memberchitiperformanceclass">
+<div class="backbutton">
+<button class="btn" (click)="goBack()">
+  Back
+</button>
+</div>
+<div>
+    <label class="performanceheader">
+        Naveen's Chiti Payment Details
+      </label>
+</div>
+ 
+<div class="chitidetails">
+    <div class="chitiname">
+        <span class="nameofheader">
+          Chiti Name :
+        </span>
+        <span class="valofheader">
+          {{chitidetails['chitiname']}}
+        </span>
+      </div>
+
+      <div class="chitiamt">
+          <span class="nameofheader">
+            Chiti Amount :
+          </span>
+          <span class="valofheader">
+            {{chitidetails['chitiamonut']}}
+          </span>
+        </div>
+
+        <div class="chitistartdate">
+            <span class="nameofheader">
+              Start Date :
+            </span>
+            <span class="valofheader">
+              {{chitidetails['startdate']}}
+            </span>
+          </div>
+          <div class="chitienddate">
+            <span class="nameofheader">
+              End Date :
+            </span>
+            <span class="valofheader">
+              {{chitidetails['enddate']}}
+            </span>
+          </div>
+          <div class="chitienddate">
+              <span class="nameofheader">
+                IsTaken :
+              </span>
+              <span class="valofheader">
+                {{chitidetails['isTaken']}}
+              </span>
+            </div>
+            <div class="chitienddate">
+                <span class="nameofheader">
+                  Taken in Month :
+                </span>
+                <span class="valofheader">
+                  {{chitidetails['isTakenMonth']}}
+                </span>
+              </div>
+</div>
+
+<div>
+    <div class="searchmemscrolldiv  table-responsive">
+        <table class="table table-borderless table-fixed">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Amount Paid</th>
+              <th>Remaining Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mem of memAmountDetails;let i = index">
+              <td class="tdforname">
+               {{mem['month']}}
+              </td>
+              <td>
+                {{mem['amtPaid']}}
+              </td>
+              <td>
+                {{mem['pendingAmt']}}
+              </td>  
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
+</div>

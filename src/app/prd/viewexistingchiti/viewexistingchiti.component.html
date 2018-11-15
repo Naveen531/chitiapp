@@ -1,0 +1,89 @@
+<div class="viewchiticlass">
+<div>
+  <h4>Chiti Details</h4>
+</div>
+<!-- <div class="searchbarwithdrop">
+  <div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+      Search With
+    <span class="caret"></span>
+  </button>
+    <ul class="dropdown-menu dropdownclass">
+      <li *ngFor="let searchitem of searchItems;let i = index"  [ngClass]="{active:searchitem['search'] === selectedsearch}">
+        <button class="btn" (click)="changeSelected(searchitem['search'])">{{searchitem['search']}}</button>
+      </li>
+      
+    </ul>
+    <label class="selectedserach">
+      {{selectedsearch}}
+    </label>
+    <input type="text" class="searchInput" id="usr">
+  </div>
+</div> -->
+
+<div class="filterby">
+  Filter Table By:
+    <input type="text" class="searchInput" placeholder="chiti Name" [(ngModel)]="chitName" (input)="onSearchChange('name',$event.target.value)">
+    <input type="text" class="searchInput" placeholder="Amount" [(ngModel)]="chitAmt" (input)="onSearchChange('amt',$event.target.value)">
+    <input type="text" class="searchInput" placeholder="Members" [(ngModel)]="chitMem" (input)="onSearchChange('mem',$event.target.value)">
+    <select class="searchInput" (change)="onChange($event.target.value)">
+        <option>ALL</option>
+        <option>Y</option>
+        <option>N</option>
+      </select>
+      <img class="searchIMGinFilter" src="../../../assets/resource/img/search.png" 
+      role="button" (click)="getSearchData()">
+
+</div>
+  <div class="chitidetais">
+    <div class="addedmembersscroll table-responsive">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>Chiti Name</th>
+            <th>Chiti Amount</th>
+            <th>Total Members</th>
+            <th>Chiti live</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mem of pagedata;let i = index">
+              <td>
+              <button (click)="goToChiti(mem['chitiname'])" class="btn viewchiticlassname">
+                  {{mem['chitiname']}}
+              </button>
+              </td>
+              <td>{{mem['chitiamonut']}}</td>
+              <td>
+                {{mem['totalmembers']}}
+              </td>
+              
+              <td>{{mem['chitilive']}}</td>
+             
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+      <ul class="pagination">
+          <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+              <a (click)="setPage(1)" class="page-link">First</a>
+          </li>
+          <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+            <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a></li>
+          
+          <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a class="page-link" (click)="setPage(page)">{{page}}</a>
+        </li>
+          <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+              <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
+        
+  </div>
+ 
+  </div>

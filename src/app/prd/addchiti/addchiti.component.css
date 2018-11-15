@@ -1,0 +1,83 @@
+
+@media screen and (max-width: 767px) and (min-width: 320px){
+    .addchiticlass {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .tdforname{
+        width: 165px;
+    }
+}
+@media screen and (min-width: 768px){
+    .addchiticlass {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+.addchiticlass .page-item.active .page-link {
+    z-index: unset !important;
+    
+}
+.addchiticlass .addingnewmemberform{
+margin-left: 5px;
+margin-right: 5px;
+}
+.addchiticlass .addmembutton{
+    background-color: Transparent;
+    border: none;
+   
+}
+.addchiticlass .addcloseimg{
+width: 20px;
+height: 20px;
+float: right;
+}
+.addchiticlass .searchmembersbutton{
+width: 300px;
+}
+/*  .addchiticlass .searchmembers
+{
+    height: 150px;
+}
+.addchiticlass .searchmembers .searchmemscrolldiv{
+height: 100px;
+} 
+.addchiticlass .addedmembers
+{
+    height: 150px;
+}
+.addchiticlass .addedmembers .addedmembersscroll{
+height: 100px;
+}  */
+
+/* tbody {
+    display:block;
+    height:200px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+  
+}
+td{
+    display: inline;
+} */
+
+
+.addchiticlass tbody {
+    display:block;
+    height:100px;
+    overflow:auto;
+}
+.addchiticlass thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.addchiticlass thead {
+    width: calc( 100% - 1em )
+}
+.addchiticlass td{
+    word-break: break-all;
+}

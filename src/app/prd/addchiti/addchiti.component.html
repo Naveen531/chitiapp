@@ -1,0 +1,148 @@
+<div class="addchiticlass">
+<h4>Enter Chiti Details</h4>
+  <form class="form-horizontal" [formGroup]="chitiAddingForm" (ngSubmit)="addChiti()" #addchitiform="ngForm">
+
+
+    <div class="form-group">
+      <label for="chitiName">Chiti Name</label>
+      <input type="text" formControlName="chitiName" class="form-control" id="chitiName">
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="number" class="form-control" formControlName="amount" id="amount">
+    </div>
+
+    <div class="form-group">
+      <label class="members">
+        Members
+      </label>
+      <input type="number" class="form-control" formControlName="members" id="members">
+
+    </div>
+
+    <div class="form-group">
+      <label class="months">
+        Months
+      </label>
+      <input type="number" class="form-control" formControlName="months" id="months">
+
+    </div>
+
+    <div class="form-group">
+      <label class="startdate">
+        Start Date
+      </label>
+      <input type="date" class="form-control" formControlName="startdate" id="startdate">
+
+    </div>
+
+    <div class="form-group">
+      <label class="enddate">
+        Members
+      </label>
+      <input type="date" class="form-control" formControlName="enddate" id="enddate">
+
+    </div>
+    <div>
+        <h3>Selected Members for chiti</h3>
+    </div>
+
+    <div class="addedmembers">
+        <div class="addedmembersscroll table-responsive">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Phone Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let mem of selectedMembersArray;let i = index">
+                    <td class="tdforname">{{mem['name']}}</td>
+                    <td>
+                      <span>
+                          {{mem['phoneno']}}
+                        <img class="addcloseimg" src="../../../assets/resource/img/close.png" role="button" (click)="deleteFieldValue(mem)">
+                          
+                      </span>
+                      
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+    
+
+
+    <div>
+        <h3>Select the Exiting Members</h3>
+        <input type="text" class="namesearch" class="searchmembersbutton form-control" placeholder="search name or phonenumber">
+    </div>
+    <div class="searchmembers">
+      
+      <div class="searchmemscrolldiv  table-responsive">
+        <table class="table table-borderless table-fixed">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mem of exsistingmems;let i = index">
+              <td class="tdforname">{{mem['name']}}</td>
+              <td>
+                <span class="phoneno">
+                    {{mem['phoneno']}}
+                    
+                    <img class="addcloseimg" src="../../../assets/resource/img/Add_tags.png" role="button" (click)="addFieldValue(mem)">
+
+                </span>
+               
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <ul class="pagination">
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)" class="page-link">First</a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+              <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a></li>
+            
+            <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a class="page-link" (click)="setPage(page)">{{page}}</a>
+          </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+              <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+          </ul>
+          
+    </div>
+    </div>
+
+    <div>
+      <div>
+        Add New Member
+      </div>
+      <span class="addingnewmember">
+        <input type="text" class="addingnewmemberform" formControlName="memberName" placeholder="Enter Membername">
+        <input type="tel" pattern="[1-9]{3} [0-9]{3} [0-9]{4}" class="addingnewmemberform" formControlName="memberphonenumber" placeholder="Phone Number">
+        <button type="button" class="addmembutton btn btn-light" (click)="addMemberValue()">Add</button>
+      </span>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-xs" [disabled]="!addchitiform.valid">Add Chiti</button>
+
+  </form>
+
+</div>
