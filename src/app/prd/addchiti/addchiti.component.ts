@@ -12,6 +12,7 @@ export class AddchitiComponent implements OnInit {
   selectedMembersArray = [];
   existingMembersArray = [
     {name: 'Naveen Kumar Reddy Redlavari', phoneno: 99989642186},
+    {name: 'Naveen Kumar Reddy Redlavari123', phoneno: 99989642186},
     {name: 'Naveen2', phoneno: 99989642186},
     {name: 'Naveen3', phoneno: 99989642186},
     {name: 'Naveen4', phoneno: 99989642186},
