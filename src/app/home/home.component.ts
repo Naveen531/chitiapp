@@ -18,11 +18,11 @@ export class HomeComponent implements OnInit {
   goto(gotoVal: string) {
     switch (gotoVal) {
       case 'addchiti': {
-        this.router.navigate(['addchiti']);
+        this.router.navigate(['/home/addchiti']);
         break;
       }
       case 'viewchiti': {
-        this.router.navigate(['viewchtis']);
+        this.router.navigate(['/home/viewchtis']);
 
         break;
       }

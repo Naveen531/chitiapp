@@ -1,0 +1,17 @@
+<div>
+  <form [formGroup]="formLogin" (ngSubmit)="login()" #bookform="ngForm" novalidate>
+  
+    <label>
+      Username:
+      <input type="text" formControlName="username">
+    </label>
+  
+    <label>
+      Password:
+      <input type="text" formControlName="password">
+    </label>
+
+    <input type="submit" class="forsubmit" value="Log In">
+
+  </form>
+</div>

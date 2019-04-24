@@ -1,0 +1,40 @@
+.headercompt{
+    margin-top:  70px !important;
+    margin-bottom:  70px !important;
+    }
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    }
+    .container{
+        width: 100%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    }
+
+    .achrbutton {
+        display: block;
+        width: 115px;
+        height: 35px;
+        background: #4E9CAF;
+        padding: 1px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        float: right;
+    }

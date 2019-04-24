@@ -17,7 +17,7 @@ const appRoutesofchild: Routes = [
 ];
 @NgModule({
   imports: [
-    CommonModule, BrowserAnimationsModule, RouterModule.forChild(appRoutesofchild), FormsModule, ReactiveFormsModule, HttpClientModule
+    CommonModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
   declarations: [AddchitiComponent, AddmembersComponent, ViewexistingchitiComponent, ChitidetailsComponent,
     MemberchitiperformanceComponent],

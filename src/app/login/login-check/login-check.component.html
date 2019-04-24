@@ -1,0 +1,7 @@
+<div *ngIf="isLogin; else loggedOut">
+    <app-header-footer></app-header-footer>
+  </div>
+  
+  <ng-template #loggedOut>
+  <app-login></app-login>
+  </ng-template>

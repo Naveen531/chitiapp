@@ -45,7 +45,19 @@
 
   <button>trhrthrt</button>
 </div> -->
-<div>
-  <router-outlet></router-outlet>
+<div class="fixed-header">
+  <div class="container">
+      <nav>
+          <a routerLink="/home/homeScreen" routerLinkActive="active">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact Us</a>
+          <button class="achrbutton" role="button" (click)="logout()">Logout</button>
+      </nav>
+  </div>
 </div>
-
+<div class="headercompt">
+  <router-outlet></router-outlet>
+</div>    
+<div class="fixed-footer">
+  <div class="container">Copyright &copy; 2016 Your Company</div>        
+</div>
