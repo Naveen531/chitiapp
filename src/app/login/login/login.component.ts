@@ -38,6 +38,8 @@ formLogin: FormGroup;
         localStorage.setItem('chiti-token', resp.headers.get('test'));
         this.apiinfoService.setToken();
         this.pojoService.setIsLogin(true);
+        this.pojoService.setUserName(usrDetails['username']);
+        console.log('from login:' + this.pojoService.getUserName());
       this.router.navigate(['/home']);
 
       }, error => {

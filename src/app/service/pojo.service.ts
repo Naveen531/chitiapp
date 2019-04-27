@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class PojoService {
 islogin: boolean;
+private userName: String;
+
   constructor() { }
 
   setIsLogin(val: boolean) {
@@ -12,5 +14,12 @@ islogin: boolean;
   }
   getIsLogin() {
     return this.islogin;
+  }
+
+  public  getUserName(): String {
+    return this.userName;
+  }
+  public setUserName(userName: String): void {
+    this.userName = userName;
   }
 }

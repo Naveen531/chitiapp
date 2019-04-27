@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import {PojoService} from '../../service/pojo.service';
 import {GetdataService} from '../../service/getdata.service';
 @Component({
   selector: 'app-addchiti',
@@ -32,7 +33,11 @@ export class AddchitiComponent implements OnInit {
   ];
   pager: any = {};
   exsistingmems: any = [];
-  constructor(private fb: FormBuilder, private getdataService: GetdataService) { }
+  constructor(
+     private fb: FormBuilder,
+     private getdataService: GetdataService,
+     private pojoService: PojoService
+     ) { }
 
   ngOnInit() {
     this.createForm();
@@ -47,8 +52,9 @@ export class AddchitiComponent implements OnInit {
       months: ['', Validators.required],
       startdate: ['', Validators.required],
       enddate: ['', Validators.required],
-      memberName: [''],
-      memberphonenumber: ['']
+      memberName: ['', Validators.required],
+      memberphonenumber: ['', Validators.required],
+      email: ['']
     });
   }
   setPage(page: number) {
@@ -78,8 +84,25 @@ export class AddchitiComponent implements OnInit {
   addMemberValue() {
     const name = this.chitiAddingForm.get('memberName').value;
     const mobno = this.chitiAddingForm.get('memberphonenumber').value;
+    const email = this.chitiAddingForm.get('email').value;
+    console.log({name: name, phoneno: mobno, email: email});
     if (name.length > 0 && /\d{10}/.test(mobno) ) {
-      this.selectedMembersArray.push({name: name, phoneno: mobno});
+      this.selectedMembersArray.push({name: name, phoneno: mobno, email: email});
     }
+  }
+
+
+  addChiti() {
+    console.log(this.pojoService.getUserName());
+    let a = {'chitiName' :  this.chitiAddingForm.get('chitiName').value,
+    'amount' : this.chitiAddingForm.get('amount').value,
+    'members' : this.chitiAddingForm.get('members').value,
+    'months' : this.chitiAddingForm.get('months').value,
+    'startDate' : this.chitiAddingForm.get('startdate').value,
+    'ownedby' : this.pojoService.getUserName(),
+    'endDate' : this.chitiAddingForm.get('enddate').value,
+    'chitmembers' : this.selectedMembersArray
+  };
+console.log(a);
   }
 }

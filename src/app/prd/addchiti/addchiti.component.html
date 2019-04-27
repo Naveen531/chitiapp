@@ -136,12 +136,14 @@
       <span class="addingnewmember">
         <input type="text" class="addingnewmemberform" formControlName="memberName" placeholder="Enter Membername">
         <input type="tel" pattern="[1-9]{3} [0-9]{3} [0-9]{4}" class="addingnewmemberform" formControlName="memberphonenumber" placeholder="Phone Number">
+        <input type="email" class="emailclass" formControlName="email" placeholder="email">
+
         <button type="button" class="addmembutton btn btn-light" (click)="addMemberValue()">Add</button>
       </span>
 
     </div>
-
-    <button type="submit" class="btn btn-primary btn-xs" [disabled]="!addchitiform.valid">Add Chiti</button>
+    <div>{{!addchitiform.valid}}</div>
+    <button type="submit" class="btn btn-primary btn-xs">Add Chiti</button>
 
   </form>
 
