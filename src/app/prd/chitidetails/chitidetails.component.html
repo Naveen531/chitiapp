@@ -5,7 +5,7 @@
         Chiti Name :
       </span>
       <span class="valofheader">
-        {{chitidetails['chitiname']}}
+        {{chitidetails['chitiName']}}
       </span>
     </div>
     <div class="chitiamt">
@@ -13,7 +13,7 @@
         Chiti Amount :
       </span>
       <span class="valofheader">
-        {{chitidetails['chitiamonut']}}
+        {{chitidetails['amount']}}
       </span>
     </div>
     <div class="chitimes">
@@ -21,7 +21,7 @@
         Chiti Members :
       </span>
       <span class="valofheader">
-        {{chitidetails['totalmembers']}}
+        {{chitidetails['members']}}
       </span>
     </div>
     <div class="chitistartdate">
@@ -29,7 +29,7 @@
         Start Date :
       </span>
       <span class="valofheader">
-        {{chitidetails['startdate']}}
+        {{chitidetails['startDate']}}
       </span>
     </div>
     <div class="chitienddate">
@@ -37,15 +37,15 @@
         End Date :
       </span>
       <span class="valofheader">
-        {{chitidetails['enddate']}}
+        {{chitidetails['endDate']}}
       </span>
     </div>
     <div class="chitiremainingmonths">
       <span class="nameofheader">
-        Percentage :
+        Commission :
       </span>
       <span class="valofheader">
-        9%
+        {{chitidetails['commission'] + '%'}}
       </span>
     </div>
     <div class="chitiremainingmonths">
@@ -53,7 +53,7 @@
         Months Remining for Chiti Completion :
       </span>
       <span class="valofheader">
-        9
+        {{chitidetails['diff']}}
       </span>
     </div>
   </div>

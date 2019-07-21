@@ -44,6 +44,13 @@
       <input type="date" class="form-control" formControlName="enddate" id="enddate">
 
     </div>
+    <div class="form-group">
+      <label class="enddate">
+        Commission
+      </label>
+      <input type="number" class="form-control" formControlName="commission" id="commission">
+
+    </div>
     <div>
         <h3>Selected Members for chiti</h3>
     </div>
@@ -62,7 +69,7 @@
                     <td class="tdforname">{{mem['name']}}</td>
                     <td>
                       <span>
-                          {{mem['phoneno']}}
+                          {{mem['number']}}
                         <img class="addcloseimg" src="../../../assets/resource/img/close.png" role="button" (click)="deleteFieldValue(mem)">
                           
                       </span>
@@ -95,7 +102,7 @@
               <td class="tdforname">{{mem['name']}}</td>
               <td>
                 <span class="phoneno">
-                    {{mem['phoneno']}}
+                    {{mem['number']}}
                     
                     <img class="addcloseimg" src="../../../assets/resource/img/Add_tags.png" role="button" (click)="addFieldValue(mem)">
 

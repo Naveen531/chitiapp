@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import {PojoService} from '../../service/pojo.service';
-import {GetdataService} from '../../service/getdata.service';
+import { PojoService } from '../../service/pojo.service';
+import { GetdataService } from '../../service/getdata.service';
+import {ApiinfoService} from '../../service/http/apiinfo.service';
+
 @Component({
   selector: 'app-addchiti',
   templateUrl: './addchiti.component.html',
@@ -11,37 +13,19 @@ import {GetdataService} from '../../service/getdata.service';
 export class AddchitiComponent implements OnInit {
   chitiAddingForm: FormGroup;
   selectedMembersArray = [];
-  existingMembersArray = [
-    {name: 'Naveen Kumar Reddy Redlavari123', phoneno: 99989642186},
-    {name: 'Naveen2', phoneno: 99989642186},
-    {name: 'Naveen3', phoneno: 99989642186},
-    {name: 'Naveen4', phoneno: 99989642186},
-    {name: 'Naveen5', phoneno: 99989642186},
-    {name: 'Naveen6', phoneno: 99989642186},
-    {name: 'Naveen Kumar Reddy Redlavari', phoneno: 99989642186},
-    {name: 'Naveen7', phoneno: 99989642186},
-    {name: 'Naveen8', phoneno: 99989642186},
-    {name: 'Naveen9', phoneno: 99989642186},
-    {name: 'Naveen10', phoneno: 99989642186},
-    {name: 'Naveen', phoneno: 99989642186},
-    {name: 'Naveen Kumar Reddy Redlavari', phoneno: 99989642186},
-    {name: 'Naveen', phoneno: 99989642186},
-    {name: 'Naveen', phoneno: 99989642186},
-    {name: 'Naveen', phoneno: 99989642186},
-    {name: 'Naveen', phoneno: 99989642186},
-    {name: 'Naveen', phoneno: 99989642186},
-  ];
+  existingMembersArray = [];
   pager: any = {};
   exsistingmems: any = [];
   constructor(
-     private fb: FormBuilder,
-     private getdataService: GetdataService,
-     private pojoService: PojoService
-     ) { }
+    private apiinfoService: ApiinfoService,
+    private fb: FormBuilder,
+    private getdataService: GetdataService,
+    private pojoService: PojoService
+  ) { }
 
   ngOnInit() {
     this.createForm();
-    this.setPage(1);
+    this.getExsistingMembers();
   }
 
   createForm() {
@@ -54,55 +38,81 @@ export class AddchitiComponent implements OnInit {
       enddate: ['', Validators.required],
       memberName: ['', Validators.required],
       memberphonenumber: ['', Validators.required],
+      commission: ['', Validators.required],
       email: ['']
     });
   }
   setPage(page: number) {
     if (page < 1 || page > this.pager.totalPages) {
-        return;
+      return;
     }
 
     // get pager object from service
     this.pager = this.getdataService.getPager(this.existingMembersArray.length, page);
     console.log(this.pager);
     // get current page of items
-     this.exsistingmems = this.existingMembersArray.slice(this.pager.startIndex, this.pager.endIndex + 1);
-}
+    this.exsistingmems = this.existingMembersArray.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
   addFieldValue(mem) {
     this.selectedMembersArray.push(mem);
+    /*
+    mem['email'] = mem['email'] == null ? 'dummy@gmail.com' : mem['email'];
+    console.log(mem['email']);
+    console.log(this.selectedMembersArray);*/
   }
 
   deleteFieldValue(mem) {
 
     const expertDetailIndex = this.selectedMembersArray.findIndex(member => (member['name'] === mem['name']
-    && member['phoneno'] === mem['phone']));
+      && member['number'] === mem['number']));
 
-      this.selectedMembersArray.splice(expertDetailIndex, 1);
+    this.selectedMembersArray.splice(expertDetailIndex, 1);
 
   }
 
   addMemberValue() {
     const name = this.chitiAddingForm.get('memberName').value;
     const mobno = this.chitiAddingForm.get('memberphonenumber').value;
+    /*const email = this.chitiAddingForm.get('email').value == null ? 'dummy@gmail.com' : this.chitiAddingForm.get('email').value;*/
     const email = this.chitiAddingForm.get('email').value;
-    console.log({name: name, phoneno: mobno, email: email});
-    if (name.length > 0 && /\d{10}/.test(mobno) ) {
-      this.selectedMembersArray.push({name: name, phoneno: mobno, email: email});
+    console.log({ name: name, number: mobno, email: email });
+    if (name.length > 0 && /\d{10}/.test(mobno)) {
+      this.selectedMembersArray.push({ name: name, number: mobno, email: email });
     }
   }
 
 
   addChiti() {
     console.log(this.pojoService.getUserName());
-    let a = {'chitiName' :  this.chitiAddingForm.get('chitiName').value,
-    'amount' : this.chitiAddingForm.get('amount').value,
-    'members' : this.chitiAddingForm.get('members').value,
-    'months' : this.chitiAddingForm.get('months').value,
-    'startDate' : this.chitiAddingForm.get('startdate').value,
-    'ownedby' : this.pojoService.getUserName(),
-    'endDate' : this.chitiAddingForm.get('enddate').value,
-    'chitmembers' : this.selectedMembersArray
-  };
-console.log(a);
+    const a = {
+      'chitiName': this.chitiAddingForm.get('chitiName').value,
+      'amount': this.chitiAddingForm.get('amount').value,
+      'members': this.chitiAddingForm.get('members').value,
+      'months': this.chitiAddingForm.get('months').value,
+      'startDate': this.chitiAddingForm.get('startdate').value,
+      'ownedby': this.pojoService.getUserName(),
+      'endDate': this.chitiAddingForm.get('enddate').value,
+      'commission': this.chitiAddingForm.get('commission').value,
+      'memberDetails': this.selectedMembersArray
+    };
+    console.log(a);
+    this.apiinfoService.postApi('addChiti', a).subscribe(
+      data => {
+        console.log(data);
+      }, error => {}, () => {}
+    );
+  }
+
+  getExsistingMembers() {
+
+    this.apiinfoService.getApi('getChitiMembers', {'user': this.pojoService.getUserName()})
+    .subscribe(
+      data => {
+        console.log(data['data'][0]['name']);
+        this.existingMembersArray = data['data'];
+      }, error => {}, () => {
+        this.setPage(1);
+      }
+    );
   }
 }

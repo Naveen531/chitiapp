@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import {PojoService} from '../service/pojo.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private router: Router, private activatedRoute: ActivatedRoute
+    private router: Router, private activatedRoute: ActivatedRoute, private pojoService: PojoService
 
   ) { }
 
   ngOnInit() {
+    console.log('===============================:' + this.pojoService.getUserName());
   }
   goto(gotoVal: string) {
     switch (gotoVal) {

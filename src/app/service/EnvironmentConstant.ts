@@ -33,7 +33,12 @@ export class EnvironmentConstant {
         getToken: '/login',
         registerUser: '/sign-up',
         validToken: '/validToken',
-        test: '/test'
+        test: '/test',
+        getChitiMembers: '/getChitiMembers',
+        addChiti: '/addChiti',
+        getChitis: '/getChitis',
+        getChitisCount: '/getChitisCount',
+        getChiti: '/getChiti'
     };
 
 

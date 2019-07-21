@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpParams } from '@angular/common/http';
 import { ChitidetailsComponent } from './chitidetails/chitidetails.component';
 import { MemberchitiperformanceComponent } from './memberchitiperformance/memberchitiperformance.component';
+import { ChitimonthwiseComponent } from './chitimonthwise/chitimonthwise.component';
 const appRoutesofchild: Routes = [
   {path: 'addchiti', component: AddchitiComponent},
   {path: 'viewchtis', component: ViewexistingchitiComponent},
@@ -20,7 +21,8 @@ const appRoutesofchild: Routes = [
     CommonModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
   declarations: [AddchitiComponent, AddmembersComponent, ViewexistingchitiComponent, ChitidetailsComponent,
-    MemberchitiperformanceComponent],
+    MemberchitiperformanceComponent,
+    ChitimonthwiseComponent],
   exports: [BrowserAnimationsModule, RouterModule, FormsModule, ReactiveFormsModule, HttpClientModule]
 })
 export class PrdModule { }

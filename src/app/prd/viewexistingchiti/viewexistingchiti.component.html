@@ -49,16 +49,16 @@
         <tbody>
           <tr *ngFor="let mem of pagedata;let i = index">
               <td>
-              <button (click)="goToChiti(mem['chitiname'])" class="btn viewchiticlassname">
-                  {{mem['chitiname']}}
+              <button (click)="goToChiti(mem['chitiName'])" class="btn viewchiticlassname">
+                  {{mem['chitiName']}}
               </button>
               </td>
-              <td>{{mem['chitiamonut']}}</td>
+              <td>{{mem['amount']}}</td>
               <td>
-                {{mem['totalmembers']}}
+                {{mem['members']}}
               </td>
               
-              <td>{{mem['chitilive']}}</td>
+              <td>{{checkLive(mem,i)}}</td>
              
           </tr>
         </tbody>
